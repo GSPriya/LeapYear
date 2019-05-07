@@ -1,19 +1,27 @@
 const Year = require('./year');
 
-
-var year =new Year(document.getElementById("year").value);
-
 document.getElementById("check").onclick = function(){
+    var year =new Year(document.getElementById("year").value);
     if(year.validate())
     {
-        document.getElementById("message").style.visibility = "hidden";
+        displayValidatedMessage("");
+        if(year.isLeapYear())
+        {
+            displayValidatedMessage("Leap Year");
+        }
+       
     }
     
     else
     {
-        document.getElementById("message").style.visibility = "visible";
+        displayValidatedMessage("Not a Valid Year. Gregorian Calendar is adopted only from 1582");
     }
     
+}
+
+function displayValidatedMessage(message)
+{
+    document.getElementById("message").innerHTML=message;
 }
 
 
