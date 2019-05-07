@@ -1,9 +1,16 @@
-var Year = function(year) {this.year =Number(year)};
-
-Year.prototype.validate=function()
-{
-    return this.year>1582;
+var Year = function(value) {
+    
+    if(isValidYear(value))
+    {
+        this.year =value;
+    }
+    else{
+        
+        throw TypeError;
+    }
+    
 };
+
 
 Year.prototype.isLeapYear=function()
 {
@@ -23,5 +30,10 @@ function isDivisibleBy400(number)
 function isDivisibleBy100(number)
 {
     return number%100===0;
+}
+
+function isValidYear(value)
+{
+    return value >= 1582;
 }
 module.exports = Year;
