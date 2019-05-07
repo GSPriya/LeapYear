@@ -7,19 +7,21 @@ Year.prototype.validate=function()
 
 Year.prototype.isLeapYear=function()
 {
-      if(this.year%400===0)
-      {
-        return true;
-      }
-      else if(this.year%100===0)
-      {
-        return false;
-      }
-      else if(this.year%4===0)
-      {
-        return true;
-      }
-      return false;
+      return isDivisibleBy100(this.year)? isDivisibleBy400(this.year):isDivisibleBy4(this.year);
         
 };
+
+function isDivisibleBy4(number)
+{
+    return number%4===0;
+}
+
+function isDivisibleBy400(number)
+{
+    return number%400===0;
+}
+function isDivisibleBy100(number)
+{
+    return number%100===0;
+}
 module.exports = Year;
