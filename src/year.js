@@ -15,6 +15,11 @@ Year.prototype.isLeapYear=function()
       {
         return false;
       }
+      else if(this.year%4===0)
+      {
+        return true;
+      }
+      return false;
         
 };
 module.exports = Year;
