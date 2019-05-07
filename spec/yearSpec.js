@@ -25,5 +25,12 @@ describe('check valid leap year', function () {
         expect(year.isLeapYear()).toBe(true);
     });
 
+    it('should return false when the year is divisible by 100', function () {
+
+        var year = new Year(1700);
+
+        expect(year.isLeapYear()).toBe(false);
+    });
+
 
 });
